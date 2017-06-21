@@ -8,13 +8,12 @@
 
 x=0
 101.times do 
-if x == 3
-	puts  "mined"
-	else
-	p x
-	end  
+if x % 3 == 0
+	p "mined"
+elsif x % 5 == 0
+	p "minds"
+else 
+	p x 
+	end
 	x+=1
 end
-
-
-	
