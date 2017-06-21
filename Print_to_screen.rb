@@ -7,12 +7,13 @@
 
 
 x=0
-100.times do 
+101.times do 
 if x == 3
-	p "mined"
-	end
-	x+=1
+	puts  "mined"
+	else
 	p x
+	end  
+	x+=1
 end
 
 
