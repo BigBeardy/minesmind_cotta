@@ -92,7 +92,18 @@ end
 	food = params[:fav_food]
 	erb :eyecolor, :locals => {:name => name, :age => age, :fav_num1 => fav_num1 , :fav_num2 => fav_num2, :fav_num3 => fav_num3, :hair => hair, :food => food }
 	end
-post '/eyecolor' do 
+post '/eyecolor' do
+    age = params[:user_age]
+	name = params[:user_name]
+	fav_num1 = params[:user_number_1] 
+	fav_num2 = params[:user_number_2]
+	fav_num3 = params[:user_number_3]
+	hair = params[:user_hair]
+	food = params[:fav_food]
+	eye = params[:eyecolor]
+	redirect '/final?user_name=' + name + '&user_age=' + age + '&user_number_1=' + fav_num1 + '&user_number_2=' + fav_num2 + '&user_number_3=' + fav_num3 + '&user_hair=' + hair + '&fav_food=' + food + '&eyecolor=' + eye
+end
+get '/final' do 
 	age = params[:user_age]
 	name = params[:user_name]
 	fav_num1 = params[:user_number_1] 
@@ -100,5 +111,17 @@ post '/eyecolor' do
 	fav_num3 = params[:user_number_3]
 	hair = params[:user_hair]
 	food = params[:fav_food]
-	redirect '/final?user_name=' + name + '&user_age=' + age + '&user_number_1=' + fav_num1 + '&user_number_2=' + fav_num2 + '&user_number_3=' + fav_num3 + '&user_hair=' + hair + '&fav_food' + food
-end
+	eye = params[:eyecolor]
+	erb :final, :locals => {:name => name, :age => age, :fav_num1 => fav_num1 , :fav_num2 => fav_num2, :fav_num3 => fav_num3, :hair => hair, :food => food, :eye => eye}
+	end
+
+# post '/final'do 
+# 	fav_num1 = params[:user_number_1] 
+# 	fav_num2 = params[:user_number_2]
+# 	fav_num3 = params[:user_number_3]
+# 	hair = params[:user_hair]
+# 	food = params[:fav_food]
+# 	eye = params[:eyecolor]
+# 	done = params[:final]
+
+ 
