@@ -1,9 +1,11 @@
 cool! so <%= name %> what color is your hair?
 
 <form method = "post" action = '/hair_color'>
-
 <input type = "text" name = "user_hair">
 <input type = "hidden" name = "user_name" value = <%= name %>>
-
+<input type = "hidden" name = "user_age" value = <%= age %>>
+<input type = "hidden" name = "user_number_1" value = <%= fav_num1 %>>
+<input type = "hidden" name = "user_number_2" value = <%= fav_num2 %>>
+<input type = "hidden" name = "user_number_3" value = <%= fav_num3 %>>
 <input type = "submit">
 </form>
