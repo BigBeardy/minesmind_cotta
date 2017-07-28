@@ -79,7 +79,7 @@ post '/fav_food' do
 	fav_num3 = params[:user_number_3]
 	hair = params[:user_hair]
 	food = params[:fav_food]
-	redirect '/eyecolor?user_name=' + name + '&user_age=' + age + '&user_number_1=' + fav_num1 + '&user_number_2=' + fav_num2 + '&user_number_3=' + fav_num3 + '&user_hair=' + hair + '/fav_food' + food
+	redirect '/eyecolor?user_name=' + name + '&user_age=' + age + '&user_number_1=' + fav_num1 + '&user_number_2=' + fav_num2 + '&user_number_3=' + fav_num3 + '&user_hair=' + hair + '&fav_food=' + food
 end
 
  get '/eyecolor' do 
