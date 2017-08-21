@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative "sum.rb"
 # first ask for user name(first and last)
 # - ask for user eye color
 # - ask for favorite food
@@ -16,7 +17,7 @@ post '/name' do
 	# user_lastname = params[:last_name]
 	redirect '/age?user_name=' + name 
 	# '&last_name=' + last_name 
-end
+end   
 
 get '/age' do 
 	name = params[:user_name]
@@ -95,25 +96,26 @@ end
 post '/eyecolor' do
     age = params[:user_age]
 	name = params[:user_name]
-	fav_num1 = params[:user_number_1] 
+	fav_num1 = params[:user_number_1]
 	fav_num2 = params[:user_number_2]
 	fav_num3 = params[:user_number_3]
 	hair = params[:user_hair]
 	food = params[:fav_food]
 	eye = params[:eyecolor]
-	redirect '/final?user_name=' + name + '&user_age=' + age + '&user_number_1=' + fav_num1 + '&user_number_2=' + fav_num2 + '&user_number_3=' + fav_num3 + '&user_hair=' + hair + '&fav_food=' + food + '&eyecolor=' + eye
+	redirect '/final?user_name=' + name + '&user_age=' + age + '&user_number_1=' + fav_num1 + '&user_number_2=' + fav_num2 + '&user_number_3=' + fav_num3 + '&user_hair=' + hair + '&fav_food=' + food + '&eyecolor=' + eye 
 end
 get '/final' do 
 	age = params[:user_age]
 	name = params[:user_name]
-	fav_num1 = params[:user_number_1] 
-	fav_num2 = params[:user_number_2]
-	fav_num3 = params[:user_number_3]
+	fav_num1 = params[:user_number_1].to_i 
+	fav_num2 = params[:user_number_2].to_i
+	fav_num3 = params[:user_number_3].to_i
 	hair = params[:user_hair]
 	food = params[:fav_food]
 	eye = params[:eyecolor]
-	erb :final, :locals => {:name => name, :age => age, :fav_num1 => fav_num1 , :fav_num2 => fav_num2, :fav_num3 => fav_num3, :hair => hair, :food => food, :eye => eye}
-	end
+	sum = fav_num1 + fav_num2 + fav_num3
+	erb :final, :locals => {:name => name, :age => age, :fav_num1 => fav_num1 , :fav_num2 => fav_num2, :fav_num3 => fav_num3, :hair => hair, :food => food, :eye => eye, :sum => sum }
+end
 
 # post '/final'do 
 # 	fav_num1 = params[:user_number_1] 
